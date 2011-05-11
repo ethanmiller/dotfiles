@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for dotfile in bashrc bash_aliases screenrc vimrc; do
+	DEST="$HOME/.$dotfile"
+	if [ -f $DEST ]; then
+		echo "$DEST already exists, not replacing"
+	else
+		echo "Linking $HOME/dotfiles/$dotfile to $DEST"
+		ln -s $HOME/dotfiles/$dotfile $DEST
+	fi
+done
