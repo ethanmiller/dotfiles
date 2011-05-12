@@ -1,16 +1,12 @@
 startup_message off
 defscrollback 5000
-screen -t centos
-screen -t centos2
-#chdir /Users/millere/Projects/er_trunk/
-screen -t code-base 
-#chdir /Users/millere/Projects/er_trunk/
-screen -t code-models
-#chdir /Users/millere/Projects/er_trunk/
-screen -t code-views
-#chdir /Users/millere/Projects/er_trunk/
-screen -t code-templates
-screen -t misc
+screen -t (a)
+screen -t (b)
+screen -t (c)
+screen -t (d)
+screen -t (e)
+screen -t (f)
+screen -t (g)
 hardstatus alwayslastline
 hardstatus string '%{= kG}%-Lw%{= kW}%50> %n*%f %t%{= kG}%+Lw%< %{= kG}%-=%D %m/%d/%y | %C:%s %A | %1`%{-}'
 bindkey "^k" prev
