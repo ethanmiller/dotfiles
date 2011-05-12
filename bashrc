@@ -15,7 +15,7 @@ if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
 fi
 GIT_PS1_SHOWDIRTYSTATE=true
 
-. ~/bin/bashmarks.sh
+. ~/bin/bashmarks/bashmarks.sh
 
 PS1='\[\033[32m\]OSX\[\033[00m\]:\w$(__git_ps1)\$ '
 

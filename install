@@ -9,3 +9,11 @@ for dotfile in gitconfig bashrc bash_aliases screenrc vimrc; do
 		ln -s $HOME/dotfiles/$dotfile $DEST
 	fi
 done
+
+DEST="$HOME/bin"
+if [ -d $DEST ]; then
+	echo "!! $DEST already exists, not replacing"
+else
+	echo "Linking $HOME/dotfiles/bin to $DEST"
+	ln -s $HOME/dotfiles/bin $DEST
+fi
