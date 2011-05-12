@@ -36,14 +36,17 @@ filetype plugin indent on     " required!
 :nmap <Leader>n :NERDTreeToggle<CR>
 :nmap <leader>vh   :leftabove  vert sbn<CR>
 :nmap <leader>vl  :rightbelow vert sbn<CR>
+:nmap <leader>a <Esc>:Ack!
 :let g:pep8_map='<leader>8'
 
 :set directory=~/.vim/tmp " swap files
 :set hidden " change buffers without saving
 :set ruler
+:set smartindent
 :set tabstop=4
 :set shiftwidth=4
 :set softtabstop=4
+:set expandtab
 :set laststatus=2
 :set statusline=%f%m%r%h%w\ [TYPE=%Y]\ %{TagInStatusLine()}\ [POS=%04l,%04v][%p%%]
 match Todo /\s\+$/
