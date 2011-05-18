@@ -18,6 +18,7 @@ Bundle 'mileszs/ack.vim'
 " vim-scripts repos
 Bundle 'python.vim'
 Bundle 'pythonhelper'
+Bundle 'Puppet-Syntax-Highlighting'
 " pip install pep8
 Bundle 'pep8'
 Bundle 'The-NERD-tree'
