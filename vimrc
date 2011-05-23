@@ -19,6 +19,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'python.vim'
 Bundle 'pythonhelper'
 Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'matchit.zip'
 " pip install pep8
 Bundle 'pep8'
 Bundle 'The-NERD-tree'
