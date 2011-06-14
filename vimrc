@@ -39,6 +39,7 @@ filetype plugin indent on     " required!
 :nmap <leader>vh   :leftabove  vert sbn<CR>
 :nmap <leader>vl  :rightbelow vert sbn<CR>
 :nmap <leader>a <Esc>:Ack!
+:nmap <leader>c :!echo "$(pwd)/%" \| pbcopy<CR>
 :let g:pep8_map='<leader>8'
 
 :set directory=~/.vim/tmp " swap files
