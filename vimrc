@@ -40,6 +40,8 @@ filetype plugin indent on     " required!
 :nmap <leader>vl  :rightbelow vert sbn<CR>
 :nmap <leader>a <Esc>:Ack!
 :nmap <leader>c :!echo "$(pwd)/%" \| pbcopy<CR>
+:nmap <leader>er :!open "https://repos.energy-solution.net/projects/er/browser/trunk/%"
+:nmap <leader>sg :!open "https://repos.energy-solution.net/projects/sgip/browser/trunk/%"
 :let g:pep8_map='<leader>8'
 
 :set directory=~/.vim/tmp " swap files
