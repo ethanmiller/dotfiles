@@ -1,5 +1,4 @@
-" see https://github.com/gmarik/vundle
-
+" see https://github.com/gmarik/vundle 
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -55,5 +54,7 @@ filetype plugin indent on     " required!
 :set laststatus=2
 :set statusline=%f%m%r%h%w\ [TYPE=%Y]\ %{TagInStatusLine()}\ [POS=%04l,%04v][%p%%]
 match Todo /\s\+$/
-au BufRead,BufNewFile *.pp   setfiletype puppet
+au BufRead,BufNewFile *.pp setfiletype puppet
 au BufRead,BufNewFile *.pde setf processing
+au BufRead,BufNewFile *.py setlocal textwidth=79
+au BufRead,BufNewFile *.py setlocal smarttab
