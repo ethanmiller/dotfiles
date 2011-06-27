@@ -8,7 +8,7 @@ call vundle#rc()
 " My Bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-surround'
+" Bundle 'tpope/vim-surround'
 " cd ~/.vim/bundle/Command-T/ruby/command-t/; ruby extconf.rb; make
 Bundle 'wincent/Command-T'
 Bundle 'mitechie/pyflakes-pathogen'
