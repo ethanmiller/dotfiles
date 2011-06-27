@@ -14,3 +14,4 @@
 	lg = log --relative --abbrev-commit --pretty=format:'%C(white)%h %C(cyan)%cr %C(green)by %cn %Creset%s' -20
 	st = status --short --branch
 	m = checkout master
+	difs = diff --stat
