@@ -43,6 +43,9 @@ filetype plugin indent on     " required!
 :nmap <leader>sg :!open "https://repos.energy-solution.net/projects/sgip/browser/trunk/%"
 :let g:pep8_map='<leader>8'
 
+:hi clear SpellBad
+:hi SpellBad cterm=underline,bold ctermfg=red
+
 :set directory=~/.vim/tmp " swap files
 :set hidden " change buffers without saving
 :set ruler
