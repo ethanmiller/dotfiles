@@ -1,18 +1,18 @@
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+    diff = auto
+    status = auto
+    branch = auto
 [user]
-	name = Ethan
-	email = emiller@energy-solution.com
+    name = Ethan
+    email = emiller@energy-solution.com
 [diff]
-	tool = opendiff
+    tool = opendiff
 [difftool]
-	prompt = false
+    prompt = false
 [alias]
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-	svn-diff = !~/dotfiles/bin/git-svn-diff.sh
-	lg = log --relative --abbrev-commit --pretty=format:'%C(white)%h %C(cyan)%cr %C(green)by %cn %Creset%s' -20
-	st = status --short --branch
-	m = checkout master
-	difs = diff --stat
+    svn-diff = !~/dotfiles/bin/git-svn-diff.sh
+    lg = log --relative --abbrev-commit --pretty=format:'%C(white)%h %C(cyan)%cr %C(green)by %cn %Creset%s' -20
+    st = status --short --branch
+    m = checkout master
+    difs = diff --stat

@@ -5,6 +5,7 @@ alias lr=listr
 alias py=bpython
 alias nowdate='date +%Y%m%d%H%M'
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim
+alias suvi='sudo -i vim'
 alias vit="/Applications/MacVim.app/Contents/MacOS/Vim -c 'CommandT'"
 alias cynkd='rsync -urv millere@ethanmiller.name:cynk/* ~/cynk/'
 alias cynku='rsync -urv ~/cynk/* millere@ethanmiller.name:cynk/'
