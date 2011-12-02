@@ -11,14 +11,10 @@ alias cynkd='rsync -urv millere@ethanmiller.name:cynk/* ~/cynk/'
 alias cynku='rsync -urv ~/cynk/* millere@ethanmiller.name:cynk/'
 alias fmdiff='svn diff --diff-cmd=/Users/millere/bin/fmdiff'
 alias scpresume="rsync --partial --progress --rsh=ssh"
-alias whatismyip="wget -q -O - http://whatismyip.com/automation/n09230945.asp"
 alias upslog="find . -name upstream_ca_django.log -exec rm {} \;"
 function svnclear {
     for mod in $(svn st | grep -e '^M\|^A\|^D' | awk '{ print $2 }'); do svn revert $mod; done
 }
 function listr(){
     ls -pGt "$@" | head
-}
-function psg(){
-	ps -A | egrep "$1|PID" | grep -v grep
 }
