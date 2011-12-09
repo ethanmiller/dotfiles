@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for dotfile in gitconfig bashrc bash_aliases tmux.conf vimrc; do
+for dotfile in gitconfig bashrc bash_aliases tmux.conf vimrc ackrc; do
 	DEST="$HOME/.$dotfile"
 	if [ -f $DEST ]; then
 		echo "!! $DEST already exists, not replacing"
