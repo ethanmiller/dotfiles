@@ -1,8 +1,6 @@
 # CLI aliases
 alias vserver='~/bin/edit-server.pl & '
 alias ls='ls -pG'
-alias lr=listr
-alias py=bpython
 alias nowdate='date +%Y%m%d%H%M'
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim
 alias suvi='sudo -i vim'
@@ -15,6 +13,9 @@ alias upslog="find . -name upstream_ca_django.log -exec rm {} \;"
 function svnclear {
     for mod in $(svn st | grep -e '^M\|^A\|^D' | awk '{ print $2 }'); do svn revert $mod; done
 }
-function listr(){
-    ls -pGt "$@" | head
+function lr {
+    ls -pGt $1 | head
+}
+function lsto {
+    echo $PWD/$1
 }
