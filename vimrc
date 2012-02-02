@@ -1,4 +1,4 @@
-" see https://github.com/gmarik/vundle 
+" see https://github.com/gmarik/vundle
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -8,18 +8,16 @@ call vundle#rc()
 " My Bundles here:
 "
 " original repos on github
-" Bundle 'tpope/vim-surround'
-" cd ~/.vim/bundle/Command-T/ruby/command-t/; ruby extconf.rb; make
 Bundle 'wincent/Command-T'
+" cd ~/.vim/bundle/Command-T/ruby/command-t/; ruby extconf.rb; make
 Bundle 'mitechie/pyflakes-pathogen'
-" port install p5-app-ack
 Bundle 'mileszs/ack.vim'
-" vim-scripts repos
+" Bundle 'tpope/vim-surround'
+" vim-scripts repos (github https://github.com/vim-scripts/)
 Bundle 'python.vim'
 Bundle 'pythonhelper'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'matchit.zip'
-" pip install pep8
 Bundle 'pep8'
 Bundle 'The-NERD-tree'
 " non github repos
@@ -32,6 +30,7 @@ filetype plugin indent on     " required!
 :syntax on
 :colorscheme desert
 :set hlsearch
+:set rnu
 :let mapleader = " "
 :nmap <Leader>p oimport pdb;pdb.set_trace()<Esc>
 :nmap <Leader>n :NERDTreeToggle<CR>
