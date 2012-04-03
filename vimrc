@@ -20,6 +20,7 @@ Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'matchit.zip'
 Bundle 'pep8'
 Bundle 'The-NERD-tree'
+Bundle 'YankRing.vim'
 " non github repos
 "
 " ...
@@ -34,10 +35,11 @@ filetype plugin indent on     " required!
 :let mapleader = " "
 :nmap <Leader>p oimport pdb;pdb.set_trace()<Esc>
 :nmap <Leader>n :NERDTreeToggle<CR>
-:nmap <leader>vh   :leftabove  vert sbn<CR>
-:nmap <leader>vl  :rightbelow vert sbn<CR>
+:nmap <leader>vh :leftabove vert sbn<CR>
+:nmap <leader>vl :rightbelow vert sbn<CR>
 :nmap <leader>a <Esc>:Ack!
 :nmap <leader>c :!echo "$(pwd)/%" \| pbcopy<CR>
+:nmap <silent><Leader>/ :nohls<CR>
 :nmap <leader>er :!open "https://repos.energy-solution.net/projects/er/browser/trunk/%"
 :nmap <leader>sg :!open "https://repos.energy-solution.net/projects/sgip/browser/trunk/%"
 :let g:pep8_map='<leader>8'
