@@ -7,6 +7,8 @@
 # install it:
 #   curl -sL https://raw.github.com/gist/2108403/hack.sh | sh
 #
+echo "speed animation"
+defaults write com.apple.dock expose-animation-duration -float 0
 
 echo "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3

@@ -10,6 +10,7 @@ alias cynku='rsync -urv ~/cynk/* millere@ethanmiller.name:cynk/'
 alias fmdiff='svn diff --diff-cmd=/Users/millere/bin/fmdiff'
 alias scpresume="rsync --partial --progress --rsh=ssh"
 alias upslog="find . -name upstream_ca_django.log -exec rm {} \;"
+alias route="netstat -nr -f inet"
 function svnclear {
     for mod in $(svn st | grep -e '^M\|^A\|^D' | awk '{ print $2 }'); do svn revert $mod; done
 }

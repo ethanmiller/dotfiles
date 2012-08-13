@@ -2,24 +2,27 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/vundle.git/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
 Bundle 'wincent/Command-T'
 " cd ~/.vim/bundle/Command-T/ruby/command-t/; ruby extconf.rb; make
 Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'mileszs/ack.vim'
-" Bundle 'tpope/vim-surround'
+Bundle 'rodjek/vim-puppet'
+Bundle 'sophacles/vim-processing'
+Bundle 'scrooloose/nerdcommenter'
 " vim-scripts repos (github https://github.com/vim-scripts/)
-Bundle 'python.vim'
+" Python class/method/def in statusbar
 Bundle 'pythonhelper'
-Bundle 'Puppet-Syntax-Highlighting'
+" extend % for HTML, XML, others
 Bundle 'matchit.zip'
 Bundle 'pep8'
-Bundle 'The-NERD-tree'
+" Bundle 'The-NERD-tree'
 Bundle 'YankRing.vim'
 " non github repos
 "
@@ -34,14 +37,12 @@ filetype plugin indent on     " required!
 :set rnu
 :let mapleader = " "
 :nmap <Leader>p oimport pdb;pdb.set_trace()<Esc>
-:nmap <Leader>n :NERDTreeToggle<CR>
 :nmap <leader>vh :leftabove vert sbn<CR>
 :nmap <leader>vl :rightbelow vert sbn<CR>
-:nmap <leader>a <Esc>:Ack!
-:nmap <leader>c :!echo "$(pwd)/%" \| pbcopy<CR>
+:nnoremap <leader>cl :NERDComInsertComment<CR>
+:nnoremap <leader>cc :NERDComAlignedComment<CR>
 :nmap <silent><Leader>/ :nohls<CR>
-:nmap <leader>er :!open "https://repos.energy-solution.net/projects/er/browser/trunk/%"
-:nmap <leader>sg :!open "https://repos.energy-solution.net/projects/sgip/browser/trunk/%"
+:nnoremap n nzz
 :let g:pep8_map='<leader>8'
 
 :hi clear SpellBad
@@ -58,7 +59,8 @@ filetype plugin indent on     " required!
 :set laststatus=2
 :set statusline=%f%m%r%h%w\ [TYPE=%Y]\ %{TagInStatusLine()}\ [POS=%04l,%04v][%p%%]
 match Todo /\s\+$/
-au BufRead,BufNewFile *.pp setfiletype puppet
 au BufRead,BufNewFile *.pde setf processing
 au BufRead,BufNewFile *.py setlocal textwidth=79
 au BufRead,BufNewFile *.py setlocal smarttab
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
