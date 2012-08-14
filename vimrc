@@ -16,6 +16,7 @@ Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'rodjek/vim-puppet'
 Bundle 'sophacles/vim-processing'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'maxbrunsfeld/vim-yankstack'
 " vim-scripts repos (github https://github.com/vim-scripts/)
 " Python class/method/def in statusbar
 Bundle 'pythonhelper'
@@ -23,7 +24,6 @@ Bundle 'pythonhelper'
 Bundle 'matchit.zip'
 Bundle 'pep8'
 " Bundle 'The-NERD-tree'
-Bundle 'YankRing.vim'
 " non github repos
 "
 " ...
@@ -36,13 +36,11 @@ filetype plugin indent on     " required!
 :set hlsearch
 :set rnu
 :let mapleader = " "
-:nmap <Leader>p oimport pdb;pdb.set_trace()<Esc>
+:nmap <Leader>p <Plug>yankstack_substitute_older_paste
 :nmap <leader>vh :leftabove vert sbn<CR>
 :nmap <leader>vl :rightbelow vert sbn<CR>
-:nnoremap <leader>cl :NERDComInsertComment<CR>
-:nnoremap <leader>cc :NERDComAlignedComment<CR>
 :nmap <silent><Leader>/ :nohls<CR>
-:nnoremap n nzz
+:nmap n nzz
 :let g:pep8_map='<leader>8'
 
 :hi clear SpellBad
