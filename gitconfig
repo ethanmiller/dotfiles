@@ -4,7 +4,7 @@
     branch = auto
 [user]
     name = Ethan
-    email = emiller@energy-solution.com
+    email = ethan@eventbrite.com
 [diff]
     tool = opendiff
 [difftool]
@@ -16,3 +16,15 @@
     st = status --short --branch
     m = checkout master
     difs = diff --stat
+[core]
+       excludesfile = ~/.gitignore
+       legacyheaders = false
+[repack]
+       usedeltabaseoffset = true
+[merge]
+       tool = opendiff
+       summary = true
+[push]
+       default = matching
+[pull]
+       default = matching

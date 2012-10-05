@@ -3,6 +3,7 @@ alias vserver='~/bin/edit-server.pl & '
 alias ls='ls -pG'
 alias nowdate='date +%Y%m%d%H%M'
 alias vi=/usr/bin/vim
+alias python=/usr/local/bin/python2
 alias suvi='sudo -i vim'
 alias vit="/usr/bin/vim -c 'CommandT'"
 alias cynkd='rsync -urv millere@ethanmiller.name:cynk/* ~/cynk/'
