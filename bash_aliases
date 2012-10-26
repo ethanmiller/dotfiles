@@ -10,7 +10,10 @@ alias cynkd='rsync -urv millere@ethanmiller.name:cynk/* ~/cynk/'
 alias cynku='rsync -urv ~/cynk/* millere@ethanmiller.name:cynk/'
 alias fmdiff='svn diff --diff-cmd=/Users/millere/bin/fmdiff'
 alias scpresume="rsync --partial --progress --rsh=ssh"
-alias route="netstat -nr -f inet"
+#alias route="netstat -nr -f inet"
+alias dnsfix="sudo killall -HUP mDNSResponder" # OSX 10.8 DNS cache
+alias tmux="TERM=screen-256color-bce tmux"
+alias fina="find . -name"
 function lr {
     ls -pGt $1 | head
 }

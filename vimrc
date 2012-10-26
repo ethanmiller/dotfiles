@@ -17,6 +17,7 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'sophacles/vim-processing'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'maxbrunsfeld/vim-yankstack'
+Bundle 'Lokaltog/vim-distinguished'
 " vim-scripts repos (github https://github.com/vim-scripts/)
 " Python class/method/def in statusbar
 Bundle 'pythonhelper'
@@ -32,7 +33,7 @@ filetype plugin indent on     " required!
 
 :set t_Co=256
 :syntax on
-:colorscheme desert
+:colorscheme distinguished
 :set hlsearch
 :set rnu
 :let mapleader = " "
@@ -62,3 +63,4 @@ au BufRead,BufNewFile *.py setlocal textwidth=79
 au BufRead,BufNewFile *.py setlocal smarttab
 au BufWinLeave *.* mkview
 au BufWinEnter *.* silent loadview
+:set colorcolumn=80

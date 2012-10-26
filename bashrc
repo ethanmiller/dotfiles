@@ -1,4 +1,4 @@
-export PATH=$PATH:/usr/local/git/bin/:/usr/local/git/man/:/usr/local/bin/:/usr/local/share/python/
+export PATH=/usr/local/bin/:$PATH:/usr/local/git/bin/:/usr/local/git/man/:/usr/local/share/python/
 export GREP_OPTIONS='--color=auto --binary-files=without-match' GREP_COLOR='1;32'
 export LSCOLORS=dxgxhxahcxbxbxdhdh
 export PYTHONSTARTUP=~/.pythonrc
