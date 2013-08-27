@@ -1,5 +1,4 @@
 #!/usr/bin/perl
-##!/opt/local/bin/perl
 # A simple web server that just listens for textarea filter requests
 # and runs an editor to manipulate the text.  Is intended to be
 # used with the TextAid extention for Chrome.
@@ -14,6 +13,7 @@ use threads;
 use Socket;
 use IO::Select;
 use File::Temp;
+use Getopt::Long;
 
 # If you don't want to require authentication, set $REQUIRE_AUTH to 0.
 # When it is set to 1, the first authenticated request that is received
@@ -32,14 +32,25 @@ our $PORT = 8888;
 our $LOCALHOST_ONLY = 1;
 
 # Configure the program that you want to run to handle the requests.
+# This editor invocation must NOT return control to this script until
+# you are done editing.
 our $EDITOR_CMD = '/usr/local/bin/gvim -f "%s"';
 #our $EDITOR_CMD = '/usr/bin/emacsclient -c "%s"';
 
 # The settings to configure the temp dir and how soon old files are removed.
+# If TMPTEMPLATE contains the string -URL64-, then up to 64 chars of the munged
+# URL for the textarea's page will be included in the tmp file's filename.
 our $TMPDIR = '/tmp';
-our $TMPTEMPLATE = 'edit-server-XXXXXX';
+our $TMPTEMPLATE = 'edit-server-URL64-XXXXXX';
 our $TMPSUFFIX = '.txt';
 our $CLEAN_AFTER_HOURS = 4;
+
+&Getopt::Long::Configure('bundling');
+GetOptions(
+    'verbose|v+' => \( my $verbosity = 0 ),
+    'help|h' => \( my $help_opt ),
+) or usage();
+usage() if $help_opt;
 
 umask 0077; # Disables all "group" and "other" perms when saving files.
 $|  = 1;
@@ -80,6 +91,7 @@ sub do_edit
 
     local $_ = <$fh>;
     my($method, $path, $ver) = /^(GET|HEAD|POST)\s+(.*?)\s+(HTTP\S+)/;
+    print "Path: $path\n" if $verbosity >= 1;
     unless (defined $ver) {
 	http_header($fh, 500, 'Invalid request.');
 	close $fh;
@@ -99,7 +111,9 @@ sub do_edit
 
 	my($name, $value) = /^(.*?): +(.*)/;
 	$header{lc($name)} = $value;
+	print "Header: \L$name\E = $value\n" if $verbosity >= 2;
     }
+    print "-------------------------------------------------------------------\n" if $verbosity >= 2;
 
     if ($REQUIRE_AUTH) {
 	my $authorized;
@@ -153,8 +167,11 @@ sub do_edit
 	return;
     }
 
+    my($query) = $path =~ /\?(.+)/;
+    (my $template_fn = $TMPTEMPLATE) =~ s/-URL(\d+)-/ '-' . url_filename($query, $1) . '-' /e;
+
     my $tmp = new File::Temp(
-	TEMPLATE => $TMPTEMPLATE,
+	TEMPLATE => $template_fn,
 	DIR => $TMPDIR,
 	SUFFIX => $TMPSUFFIX,
 	UNLINK => 0,
@@ -181,11 +198,17 @@ sub do_edit
 
     # Clean-up old tmp files that have been around for a few hours.
     if (opendir(DP, $TMPDIR)) {
-	(my $match = quotemeta($TMPTEMPLATE . $TMPSUFFIX)) =~ s/(.*)(X+)/ $1 . ('.' x length($2)) /e;
+	(my $match = quotemeta($TMPTEMPLATE . $TMPSUFFIX)) =~ s/(.*[^X])(X+)/ $1 . ('\w' x length($2)) /e;
+	$match =~ s/\\-URL\d+\\-/-.*-/;
+	print "Match: $match\n" if $verbosity >= 3;
 	foreach my $fn (grep /^$match$/o, readdir DP) {
 	    $fn = "$TMPDIR/$fn";
-	    if (-M $fn > $CLEAN_AFTER_HOURS/24) {
+	    print "Fn: $fn\n" if $verbosity >= 3;
+	    my $age = -M $fn;
+	    if ($age > $CLEAN_AFTER_HOURS/24) {
 		unlink $fn;
+	    } else {
+		print "Age: $age\n" if $verbosity >= 3;
 	    }
 	}
 	closedir DP;
@@ -202,4 +225,38 @@ sub http_header
 	      "Server: edit-server\r\n",
 	      "Content-Type: text/plain\r\n",
 	      "\r\n", @_;
+}
+
+sub url_filename
+{
+    my($query, $max_chars) = @_;
+    print "Query: $query\n" if $verbosity >= 4;
+
+    if (defined $query) {
+	foreach my $var_val (split /&/, $query) {
+	    my($var, $val) = split /=/, $var_val, 2;
+	    if ($var eq 'url') {
+		print "Before: $val\n" if $verbosity >= 4;
+		$val =~ s/\%([0-9a-fA-F]{2})/ chr hex $1 /eg;
+		$val =~ s{^https?://}{};
+		$val =~ s/[^-\w.]+/_/g;
+		$val =~ s/^(.{1,$max_chars}).*/$1/;
+		print "After: $val\n" if $verbosity >= 4;
+		return $val;
+	    }
+	}
+    }
+
+    return 'unknown-url';
+}
+
+sub usage
+{
+    die <<EOT;
+Usage: edit-server [OPTIONS]
+
+Options:
+ -v, --verbose     Increase debug verbosity (repeatable)
+ -h, --help        Output this help message
+EOT
 }

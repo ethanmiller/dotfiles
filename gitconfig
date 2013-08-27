@@ -10,9 +10,9 @@
 [difftool]
     prompt = false
 [alias]
-    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=iso
     svn-diff = !~/dotfiles/bin/git-svn-diff.sh
-    lg = log --relative --abbrev-commit --pretty=format:'%C(white)%h %C(cyan)%cr %C(green)by %cn %Creset%s' -20
+    lg = log --relative --abbrev-commit --pretty=format:'%C(white)%h %C(cyan)%ci %C(green)by %cn %Creset%s' -20
     st = status --short --branch
     m = checkout master
     difs = diff --stat
