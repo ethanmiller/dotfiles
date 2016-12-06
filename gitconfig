@@ -16,6 +16,7 @@
     st = status --short --branch
     m = checkout master
     difs = diff --stat
+    up = pull --rebase
 [core]
        excludesfile = ~/.gitignore
        legacyheaders = false
@@ -28,3 +29,6 @@
        default = matching
 [pull]
        default = matching
+[branch]
+	autosetuprebase = always
+	autosetupmerge = always

@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin/:$PATH:/usr/local/git/bin/:/usr/local/git/man/:/usr/local/share/python/
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/git/man:/usr/local/share/python:/usr/local/terraform:/usr/local/vault:$PATH
 export GREP_OPTIONS='--color=auto --binary-files=without-match' GREP_COLOR='1;32'
 export LSCOLORS=dxgxhxahcxbxbxdhdh
 export PYTHONSTARTUP=~/.pythonrc
@@ -12,7 +12,8 @@ if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
 fi
 GIT_PS1_SHOWDIRTYSTATE=true
 
-. ~/bin/bashmarks/bashmarks.sh
+export _Z_CMD=g
+. ~/bin/z.sh
 
 PS1='\[\033[32m\]OSX\[\033[00m\]:\w$(__git_ps1)\$ '
 
