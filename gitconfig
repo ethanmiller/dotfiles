@@ -2,9 +2,6 @@
     diff = auto
     status = auto
     branch = auto
-[user]
-    name = Ethan
-    email = ethan@eventbrite.com
 [diff]
     tool = opendiff
 [difftool]
@@ -15,7 +12,8 @@
     lg = log --relative --abbrev-commit --pretty=format:'%C(white)%h %C(cyan)%ci %C(green)by %cn %Creset%s' -20
     st = status --short --branch
     m = checkout master
-    difs = diff --stat
+    diffs = diff --stat
+    shows = show --stat
     up = pull --rebase
 [core]
        excludesfile = ~/.gitignore

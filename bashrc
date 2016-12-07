@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/git/man:/usr/local/share/python:/usr/local/terraform:/usr/local/vault:$PATH
+export PATH=/usr/local/bin:$PATH:/usr/local/git/bin:/usr/local/git/man
 export GREP_OPTIONS='--color=auto --binary-files=without-match' GREP_COLOR='1;32'
 export LSCOLORS=dxgxhxahcxbxbxdhdh
 export PYTHONSTARTUP=~/.pythonrc
@@ -7,10 +7,8 @@ export EDITOR=/usr/bin/vim
 
 ## GIT ##
 # Set git autocompletion and PS1 integration
-if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
-	. /usr/local/git/contrib/completion/git-completion.bash
-fi
-GIT_PS1_SHOWDIRTYSTATE=true
+
+eval "$(fasd --init auto)"
 
 export _Z_CMD=g
 . ~/bin/z.sh

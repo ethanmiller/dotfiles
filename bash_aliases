@@ -5,15 +5,19 @@ alias nowdate='date +%Y%m%d%H%M'
 alias vi=/usr/local/bin/nvim
 alias python=/usr/local/bin/python2
 alias suvi='sudo -i vim'
-alias vit="vi -c 'CtrlP'"
-alias cynkd='rsync -urv millere@ethanmiller.name:cynk/* ~/cynk/'
-alias cynku='rsync -urv ~/cynk/* millere@ethanmiller.name:cynk/'
+alias vif="/usr/local/bin/nvim -c 'Denite file_rec'"
+alias vir="/usr/local/bin/nvim -c 'Denite file_mru'"
+alias vig="/usr/local/bin/nvim -c 'Denite grep'"
+alias vin="/usr/local/bin/nvim -c 'Denite -path=~/Dropbox/notes file_rec'"
+# alias vit="vi -c 'CtrlP'"
+# alias cynkd='rsync -urv millere@ethanmiller.name:cynk/* ~/cynk/'
+# alias cynku='rsync -urv ~/cynk/* millere@ethanmiller.name:cynk/'
 alias fmdiff='svn diff --diff-cmd=/Users/millere/bin/fmdiff'
 alias scpresume="rsync --partial --progress --rsh=ssh"
 #alias route="netstat -nr -f inet"
 alias fixdns="sudo killall -HUP mDNSResponder"
-#alias fixdns="sudo discoveryutil mdnsflushcache;sudo discoveryutil udnsflushcaches;sudo discoveryutil udnscachestats | grep 'Cached records'; sudo discoveryutil mdnscachestats | grep 'Cached records'"
-#alias fixdns="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist; sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist"
+# alias fixdns="sudo discoveryutil mdnsflushcache;sudo discoveryutil udnsflushcaches;sudo discoveryutil udnscachestats | grep 'Cached records'; sudo discoveryutil mdnscachestats | grep 'Cached records'"
+# alias fixdns="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist; sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist"
 alias tmux="TERM=screen-256color-bce tmux"
 alias fina="find . -name"
 alias vw=/usr/bin/view
