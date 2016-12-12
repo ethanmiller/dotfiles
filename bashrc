@@ -10,17 +10,10 @@ export EDITOR=/usr/bin/vim
 
 eval "$(fasd --init auto)"
 
-export _Z_CMD=g
-. ~/bin/z.sh
-
-PS1='\[\033[32m\]OSX\[\033[00m\]:\w$(__git_ps1)\$ '
+PS1='\[\033[32m\]OSX\[\033[00m\]:\w$ '
 
 ## Aliases ##
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-
-if [ -f ~/.eb_aliases ]; then
-    . ~/.eb_aliases
 fi

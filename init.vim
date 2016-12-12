@@ -104,5 +104,5 @@ call denite#custom#var('menu', 'menus', s:menus)
 " au BufRead,BufNewFile *.py setlocal textwidth=79
 " au BufRead,BufNewFile *.py setlocal smarttab
 autocmd QuickFixCmdPost *grep* cwindow
-:set colorcolumn=80
+" :set colorcolumn=80
 " inoremap <Esc> <Nop>
